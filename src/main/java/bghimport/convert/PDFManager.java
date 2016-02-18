@@ -11,7 +11,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
 public class PDFManager {
-    // TODO: change parameter to Path oder File
+    // TODO: change parameter to Path or File
     /**
      * Liefert den Text-Inhalt einer PDF.
      *
