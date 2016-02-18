@@ -5,10 +5,7 @@ import java.io.IOException;
 public class erstelleFall {
 
     public Fall getnewFall(final String dateipfad) throws IOException {
-
-        PDFManager pdfManager = new PDFManager();
-        pdfManager.setFilePath(dateipfad);//D:\\Profile\\ksx\\Eigene Dateien\\SWE2\\Test2.pdf
-        String s = pdfManager.ToText();
+        String s = PDFManager.convertPDFToText(dateipfad);
         //System.out.println(s);
 
         Fall f = new Fall();
