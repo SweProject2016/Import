@@ -6,9 +6,9 @@ public class Fall {
     private String unterueberschrift;
     private String aktenzeichen;
     private String datum;
-    private String rechtsBereich;
+    private String rechtsbereich;
     private String vergehen;
-    private String strafmaﬂ;
+    private String strafmass;
 
     public Fall() {
 
@@ -47,11 +47,11 @@ public class Fall {
     }
 
     public String getRechtsBereich() {
-        return this.rechtsBereich;
+        return this.rechtsbereich;
     }
 
-    public void setRechtsBereich(final String rechtsBereich) {
-        this.rechtsBereich = rechtsBereich;
+    public void setRechtsbereich(final String rechtsBereich) {
+        this.rechtsbereich = rechtsBereich;
     }
 
     public String getVergehen() {
@@ -63,18 +63,16 @@ public class Fall {
     }
 
     public String getStrafmaﬂ() {
-        return this.strafmaﬂ;
+        return this.strafmass;
     }
 
-    public void setStrafmaﬂ(final String strafmaﬂ) {
-        this.strafmaﬂ = strafmaﬂ;
+    public void setStrafmass(final String strafmaﬂ) {
+        this.strafmass = strafmaﬂ;
     }
 
-    public String Ausgabe() { // gibt alle angaben aus
-        String s = "";
-        s = "ueberschrift " + this.ueberschrift + "\n" + "unterueberschrift " + this.unterueberschrift + "\n" + "aktenzeichen " + this.aktenzeichen + "\n" + "datum " + this.datum + "\n" + "rechtsBereich " + this.rechtsBereich + "\n" + "vergehen " + this.vergehen + "\n" + "strafmaﬂ " + this.strafmaﬂ;
-
-        return s;
+    @Override
+    public String toString() {
+        return String.join("\n", this.ueberschrift, this.unterueberschrift, "AKZ: " + this.aktenzeichen, "Datum: " + this.datum, "Rechtsbereich: " + this.rechtsbereich, "Vergehen: " + this.vergehen, "Strafmaﬂ: " + this.strafmass);
     }
 
 }

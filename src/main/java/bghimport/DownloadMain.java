@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 
 import bghimport.bgh.BghProvider;
 
-public class Main {
+public class DownloadMain {
     public static void main(final String[] args) {
         // TODO: bessere Parameter-Verwaltung
         try {
@@ -19,7 +19,7 @@ public class Main {
                 BghProvider.download(i, path);
             }
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException | InvalidPathException e) {
-            System.out.println("Usage: bghdl.jar <path> <start-id> <end-id>");
+            System.out.println("Usage: bgh-download.jar <directory> <start-id> <end-id>");
         } catch (IOException e) {
             e.printStackTrace();
         }
