@@ -9,6 +9,7 @@ public class Fall {
     private String rechtsbereich;
     private String vergehen;
     private String strafmass;
+    private String gruende;
 
     public Fall() {
 
@@ -69,10 +70,20 @@ public class Fall {
     public void setStrafmass(final String strafmaﬂ) {
         this.strafmass = strafmaﬂ;
     }
+    
+    public String getGruende() {
+		return gruende;
+	}
+
+	public void setGruende(String gruende) {
+		this.gruende = gruende;
+	}
 
     @Override
     public String toString() {
         return String.join("\n", this.ueberschrift, this.unterueberschrift, "AKZ: " + this.aktenzeichen, "Datum: " + this.datum, "Rechtsbereich: " + this.rechtsbereich, "Vergehen: " + this.vergehen, "Strafmaﬂ: " + this.strafmass);
     }
+
+	
 
 }

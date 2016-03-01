@@ -49,7 +49,18 @@ public class FallParser {
             return null;
         }
 
-        // TODO: Gründe exportieren
+        
+        //Gründe auslessen (bei allen PDF gleich, die Gründe haben)
+        int index1 = s.indexOf( "Gründe" );
+        if (index1==-1) {
+     	   index1 = s.indexOf("G r ü n d e :"); // vieleicht falch geschrieben
+        }
+     	if (index1!=-1) { // Gründe vorhanden
+     		int index2=s.length();
+     		 f.setGruende(s.substring( index1, index2 ));
+    	}
+        
+        
 
         return f;
     }
@@ -57,7 +68,7 @@ public class FallParser {
     private static String getStrafmass(final String s) { // sucht das Strafmaß bzw. den Beschluss und gibt ihn zurück
         //strafmaß --> beschlossen:
         int index1 = s.indexOf("beschlossen:");
-        int index2 = s.indexOf("Gründe:");
+        int index2 = s.indexOf("Gründe");
         if (index2 == -1) {
             index2 = s.indexOf("G r ü n d e :"); // vieleicht falch geschrieben
             if (index2 == -1) { // nicht vorhanden --> bis ende des Dokuments augeben
