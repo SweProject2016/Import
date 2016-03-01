@@ -81,7 +81,7 @@ public class Fall {
 
     @Override
     public String toString() {
-        return String.join("\n", this.ueberschrift, this.unterueberschrift, "AKZ: " + this.aktenzeichen, "Datum: " + this.datum, "Rechtsbereich: " + this.rechtsbereich, "Vergehen: " + this.vergehen, "Strafmaß: " + this.strafmass);
+        return String.join("\n", this.ueberschrift, this.unterueberschrift, "AKZ: " + this.aktenzeichen, "Datum: " + this.datum, "Rechtsbereich: " + this.rechtsbereich, "Vergehen: " + this.vergehen, "Strafmaß: " + this.strafmass, "Gründe: " + this.gruende);
     }
 
 	

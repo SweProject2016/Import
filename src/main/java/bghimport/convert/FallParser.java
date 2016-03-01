@@ -36,7 +36,7 @@ public class FallParser {
         if (f.getUnterueberschrift().matches(".*((R|r)echtsstreit|Landwirtschaft|Familien).*")) {
             f.setRechtsbereich("Zivilrecht");
             f.setStrafmass(getStrafmass(s));
-        } else if (f.getUnterueberschrift().contains("Strafsache")) {
+        } else if (f.getUnterueberschrift().contains("Strafsache")) { //TODO Strafanzeigesache in PDF 17790_2_ars_111-00
             f.setRechtsbereich("Strafrecht");
             f.setStrafmass(getStrafmass(s));
             f.setVergehen(getVergehen(s));
@@ -53,11 +53,16 @@ public class FallParser {
         //Gründe auslessen (bei allen PDF gleich, die Gründe haben)
         int index1 = s.indexOf( "Gründe" );
         if (index1==-1) {
-     	   index1 = s.indexOf("G r ü n d e :"); // vieleicht falch geschrieben
+     	   index1 = s.indexOf("G r ü n d e "); // vieleicht falch geschrieben
+     	   if(index1!=-1); index1+=7;
+     	   if(index1==-1){
+     		  index1 = s.indexOf("Entscheidungsgründe"); // vieleicht falch geschrieben
+     		 if(index1!=-1); index1+=13;
+     	   }
         }
      	if (index1!=-1) { // Gründe vorhanden
      		int index2=s.length();
-     		 f.setGruende(s.substring( index1, index2 ));
+     		 f.setGruende(s.substring( index1+8, index2 ));
     	}
         
         
@@ -70,7 +75,10 @@ public class FallParser {
         int index1 = s.indexOf("beschlossen:");
         int index2 = s.indexOf("Gründe");
         if (index2 == -1) {
-            index2 = s.indexOf("G r ü n d e :"); // vieleicht falch geschrieben
+            index2 = s.indexOf("G r ü n d e "); // vieleicht falch geschrieben
+            if(index2==-1){
+       		  index2 = s.indexOf("Entscheidungsgründe"); // vieleicht falch geschrieben
+       	   }
             if (index2 == -1) { // nicht vorhanden --> bis ende des Dokuments augeben
                 index2 = s.length();
             }
@@ -91,3 +99,8 @@ public class FallParser {
         return source.substring(0, end);
     }
 }
+
+// Fehler treten bei fogenden PDFs auf:
+//17791_1_str_293-01
+//17790_2_ars_111-00
+//17791_1_str_293-01
