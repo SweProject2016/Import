@@ -26,39 +26,19 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-jar-plugin</artifactId>
-				<!-- TODO: Very DIRTY! Create two projects! -->
-				<executions>
-					<execution>
-						<id>Download</id>
-						<goals><goal>jar</goal></goals>
-						<phase>package</phase>
-						<configuration>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-									<mainClass>bghimport.DownloadMain</mainClass>
-								</manifest>
-							</archive>
-							<finalName>bgh-download</finalName>
-						</configuration>
-					</execution>
-					<execution>
-						<id>Convert</id>
-						<goals><goal>jar</goal></goals>
-						<phase>package</phase>
-						<configuration>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-									<mainClass>bghimport.ConvertMain</mainClass>
-								</manifest>
-							</archive>
-							<finalName>bgh-convert</finalName>
-						</configuration>
-					</execution>
-				</executions>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+							<mainClass>bghimport.DownloadMain</mainClass>
+						</manifest>
+					</archive>
+					<finalName>bgh-download</finalName>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
